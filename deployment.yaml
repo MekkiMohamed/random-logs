@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vnf-deployment
+  namespace: slice
+spec:
+  selector:
+    matchLabels:
+      app: vnf
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: vnf
+    spec:
+      containers:
+      - name: vnf
+        image: random-logs
